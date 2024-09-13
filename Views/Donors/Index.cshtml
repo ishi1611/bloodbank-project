@@ -1,0 +1,55 @@
+﻿@model List<Donor>
+@{
+}
+
+<h2 class="text-center mb-5> List of Donors </h2>
+
+<div> 
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="Donors" asp-action="Create"> New Donor </a>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Age</th>
+            <th>Bloodgroup</th>
+            <th>Birthdate</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var donor in Model)
+            {
+                <tr>
+                <td>@donor.Id</td>
+                <td>@donor.Name</td>
+                <td>@donor.Email</td>
+                <td>@donor.Contact</td>
+                <td>@donor.Age</td>
+                <td>@donor.Bloodgroup</td>
+                <td>@donor.Birthdate.ToString("MM/dd/yyyy")</td>
+                <td>@donor.City</td>
+                <td>@donor.Address</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-controller="Donors" asp-action="Edit" asp-route-id="@donor.Id">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Donors" asp-action="Delete" asp-route-id="@donor.Id" onclick="return confirm('Are you sure?')">
+                        Delete
+                    </a>
+                </td>
+                </tr>
+            }
+        </tbody>
+</table>

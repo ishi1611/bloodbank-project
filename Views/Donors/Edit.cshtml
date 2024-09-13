@@ -1,0 +1,89 @@
+﻿@model DonorDto
+@{
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5"> Edit Donor Details </h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Id</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["DonorId"]" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Contact</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Contact" />
+                    <span asp-validation-for="Contact" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Age</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Age" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Bloodgroup</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="Bloodgroup">
+                        <option value="A"> A </option>
+                        <option value="B"> B </option>
+                        <option value="AB"> AB </option>
+                        <option value="O"> O </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Birthdate</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="datetime-local" asp-for="Birthdate" />
+                    <span asp-validation-for="Birthdate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">City</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Address</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" asp-for="Address"></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <button class="btn btn-outline-danger" asp-controller="Donors" asp-action="Index" role="button">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
